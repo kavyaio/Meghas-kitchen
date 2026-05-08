@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Megha's Kitchen — Authentic homemade momos and parathas delivered fresh in Amroli, Surat. Order on Zomato or WhatsApp.">
+  <title>Megha's Kitchen — Authentic Flavours, Elevated Experience</title>
+  <!-- Base fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Option A: Cormorant Garamond — ultra-thin luxury editorial -->
+  <!-- Option B: Bebas Neue — bold cinematic film-title style -->
+  <!-- Option C: DM Serif Display — modern warm editorial -->
+  <!-- Option D: Yeseva One — romantic food-magazine serif -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Yeseva+One&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">Megha's Kitchen</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <h2 class="logo">Megha's Kitchen</h2>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-login-btn" id="loginToggleBtn" aria-label="Login">Login / Sign Up</button>
+      <button class="nav-cart-btn" id="cartToggleBtn" aria-label="Open cart">
+        🛒
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="nav-order-btn" id="profileBtn" onclick="openDashboard()">PROFILE</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <!-- VIDEO BACKGROUND — paste your video file path or URL into src="" below -->
+    <div class="hero-video-wrap">
+      <video class="hero-video" id="heroBgVideo" autoplay muted loop playsinline>
+        <source src="images/mp_.mp4" type="video/mp4">
+      </video>
+      <!-- Cinematic overlays -->
+      <div class="hero-video-overlay"></div>
+      <div class="hero-video-vignette"></div>
+      <div class="hero-video-grain"></div>
+    </div>
+    <!-- Floating food orbs — left side -->
+    <div class="hero-orbs hero-orbs-left">
+      <img src="images/momo-steam-veg.jpg.jpeg" alt="Veg Steamed Momos" class="orb orb-1 hero-float">
+      <img src="images/momo-fried-paneer.jpg.jpeg" alt="Paneer Fried Momos" class="orb orb-2 hero-float-delay2">
+    </div>
+
+    <!-- Center content -->
+    <div class="hero-center">
+      <div class="hero-badge">
+        <span>🔥</span> Now delivering in Amroli, Surat
+      </div>
+
+      <h1>
+        <span class="h1-welcome">Welcome to</span>
+        <span class="h1-brand">Megha's Kitchen</span>
+      </h1>
+
+      <p class="hero-sub">Handcrafted momos &amp; signature parathas — made with love, served with soul.</p>
+
+      <div class="hero-buttons">
+        <button class="btn-primary bg-glow bg-glow--btn" onclick="window.open('https://zomato.com','_blank')"><span
+            class="bg-edge-light"></span>🍽️ Order on Zomato</button>
+        <button class="btn-secondary bg-glow bg-glow--btn bg-glow--secondary" onclick="sendWhatsApp()"><span
+            class="bg-edge-light"></span>💬 WhatsApp Us</button>
+      </div>
+
+      <div class="hero-stats bg-glow bg-glow--stats"><span class="bg-edge-light"></span>
+        <div class="stat">
+          <h3>500+</h3>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat hero-stat-divider"></div>
+        <div class="stat">
+          <h3>9+</h3>
+          <p>Signature Dishes</p>
+        </div>
+        <div class="stat hero-stat-divider"></div>
+        <div class="stat">
+          <h3>4.8★</h3>
+          <p>Average Rating</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating food orbs — right side -->
+    <div class="hero-orbs hero-orbs-right">
+      <img src="images/momo-kurkure-cheese.jpg.jpeg" alt="Cheese Kurkure Momos" class="orb orb-3 hero-float-delay">
+      <img src="images/paratha-paneer-aloo.jpg.jpeg" alt="Paneer Aloo Paratha" class="orb orb-4 hero-float">
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="color-bends-container" id="categoriesColorBends" aria-hidden="true"></div>
+
+    <div class="section-header reveal">
+      <span class="tag">What We Serve</span>
+      <h2>Explore Our Categories</h2>
+      <p>Every dish is crafted with fresh ingredients and authentic homemade recipes</p>
+    </div>
+
+    <div class="cat-grid bento-section">
+
+      <div class="cat-card bento-card reveal" onclick="filterMenu('momos')">
+        <div class="bento-card__label">7 Varieties</div>
+        <div class="bento-card__body">
+          <div class="cat-icon">🥟</div>
+          <h3>Artisan Momos</h3>
+          <p>Handcrafted dumplings packed with rich flavours — steamed, fried, or kurkure style.</p>
+        </div>
+      </div>
+
+      <div class="cat-card bento-card reveal" onclick="filterMenu('paratha')">
+        <div class="bento-card__label">2 Varieties</div>
+        <div class="bento-card__body">
+          <div class="cat-icon">🫓</div>
+          <h3>Signature Parathas</h3>
+          <p>Freshly handcrafted with authentic homemade recipes and rich buttery goodness.</p>
+        </div>
+      </div>
+
+      <div class="cat-card bento-card bento-card--wide reveal" onclick="filterMenu('all')">
+        <div class="bento-card__label">View All</div>
+        <div class="bento-card__body">
+          <div class="cat-icon">⭐</div>
+          <h3>Chef's Specials</h3>
+          <p>Our most loved dishes hand-picked by the chef for an unforgettable experience.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+    <div class="section-header reveal">
+      <span class="tag">Our Menu</span>
+      <h2>Taste The Best</h2>
+      <p>Each dish tells a story of tradition, passion, and flavour</p>
+    </div>
+
+    <div class="menu-filters reveal">
+      <button class="filter-btn active bg-glow bg-glow--filter" data-filter="all"><span
+          class="bg-edge-light"></span>All</button>
+      <button class="filter-btn bg-glow bg-glow--filter" data-filter="momos"><span
+          class="bg-edge-light"></span>Momos</button>
+      <button class="filter-btn bg-glow bg-glow--filter" data-filter="paratha"><span
+          class="bg-edge-light"></span>Parathas</button>
+      <button class="filter-btn bg-glow bg-glow--filter" data-filter="bestseller"><span
+          class="bg-edge-light"></span>Bestsellers</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="section-header reveal">
+      <span class="tag">What People Say</span>
+      <h2>Customer Love</h2>
+      <p>Real reviews from our happy customers</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The cheese kurkure momos are absolutely addictive! Crispy on the outside, gooey
+          cheesy filling inside. Best momos in Surat, hands down!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Riya Patel</div>
+            <div class="testimonial-location">Amroli, Surat</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Finally someone who makes parathas like my grandma used to! The paneer aloo paratha
+          with curd is pure comfort food. Highly recommend!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Amit Shah</div>
+            <div class="testimonial-location">Surat</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ordered for a house party and everyone loved it! The variety of momos is amazing.
+          Quick delivery and super fresh quality every single time."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya Desai</div>
+            <div class="testimonial-location">Amroli, Surat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER CTA -->
+  <section class="order-cta" id="contact">
+    <div class="order-cta-card reveal">
+      <div class="section-header">
+        <span class="tag">Hungry?</span>
+        <h2>Order Your Favourite Meals</h2>
+        <p>Serving fresh from Megha's Kitchen — Amroli, Surat. Available on Zomato and WhatsApp.</p>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn-primary"
+          onclick="window.open('https://link.zomato.com/xqzv/rshare?id=135096441821b9f7b','_blank')">🍽️ Order on
+          Zomato</button>
+        <button class="btn-secondary" onclick="sendWhatsApp()">💬 WhatsApp Order</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTER -->
+  <section class="poster-section">
+    <div class="reveal">
+      <div class="section-header">
+        <span class="tag">Quick Access</span>
+        <h2>Scan & Order Instantly</h2>
+        <p>Use our QR code for the fastest way to place your order</p>
+      </div>
+      <div class="poster-frame">
+        <img src="images/poster.jpeg" alt="Scan to Order QR Poster">
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD OVERLAY -->
+  <div class="dashboard-overlay" id="dashboardOverlay"></div>
+
+  <!-- PREMIUM DASHBOARD MODAL/DRAWER -->
+  <div class="premium-dashboard" id="dashboardDrawer">
+    <button class="dashboard-close" id="dashboardCloseBtn">✕</button>
+    
+    <!-- DASHBOARD SIDEBAR -->
+    <aside class="dash-sidebar">
+      <div class="dash-user-profile">
+        <div class="dash-avatar" id="dashAvatar">M</div>
+        <div class="dash-user-details">
+          <h4 id="displayDashName">User Name</h4>
+          <span class="dash-loyalty-badge">👑 Gold Member • 450 Pts</span>
+        </div>
+      </div>
+      <nav class="dash-nav">
+        <button class="dash-nav-btn active" onclick="switchDashTab('personal')"><span>👤</span> Personal Info</button>
+        <button class="dash-nav-btn" onclick="switchDashTab('track')"><span>📍</span> Track Order</button>
+        <button class="dash-nav-btn" onclick="switchDashTab('orders')"><span>📦</span> Orders & Favorites</button>
+        <button class="dash-nav-btn" onclick="switchDashTab('wallet')"><span>💳</span> Wallet & Offers</button>
+        <button class="dash-nav-btn" onclick="switchDashTab('activity')"><span>⭐</span> My Activity</button>
+        <button class="dash-nav-btn" onclick="switchDashTab('settings')"><span>⚙️</span> Settings</button>
+      </nav>
+      <div class="dash-sidebar-footer">
+        <button class="dash-logout-btn" onclick="logoutUser()"><span>🚪</span> Log Out</button>
+      </div>
+    </aside>
+
+    <!-- DASHBOARD CONTENT AREA -->
+    <main class="dash-main">
+      
+      <!-- TAB: PERSONAL INFO -->
+      <section class="dash-section active" id="dash-personal">
+        <div class="dash-section-header">
+          <h2>Personal Information</h2>
+          <p>Manage your basic details and dining preferences.</p>
+        </div>
+        <div class="dash-cards-grid">
+          <div class="dash-card col-span-2">
+            <form id="editProfileForm" onsubmit="handleEditProfile(event)" class="dash-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" id="dashName" required>
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" id="dashEmail" placeholder="e.g. foodlover@gmail.com">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Mobile Number</label>
+                  <input type="tel" id="dashPhone" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                  <label>Dining Preferences</label>
+                  <select id="dashDiningPref">
+                    <option value="any">No Restrictions</option>
+                    <option value="veg">Pure Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="jain">Jain Food</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Default Delivery Address</label>
+                <textarea id="dashAddress" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn-primary mt-2">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: TRACK ORDER -->
+      <section class="dash-section" id="dash-track">
+        <div class="dash-section-header">
+          <h2>Track Active Order</h2>
+          <p>Monitor your food in real-time.</p>
+        </div>
+        
+        <div class="dash-cards-grid" style="grid-template-columns: 1fr;">
+          <div class="dash-card">
+            <div class="track-header">
+              <div class="track-id-group">
+                <span class="order-id" id="trackOrderId">Order #MK-84920</span>
+                <span class="order-status-badge status-preparing" id="trackOrderStatus">Preparing</span>
+              </div>
+              <div class="est-delivery" id="trackEstDelivery">
+                <span>Est. Delivery</span>
+                <strong>8:45 PM</strong>
+              </div>
+            </div>
+            
+            <div class="track-progress-wrapper mt-4" id="trackProgressWrapper">
+              <ul class="track-progress" id="trackProgressList">
+                <li class="step completed">
+                  <div class="step-icon">📝</div>
+                  <div class="step-text">Confirmed<br><small>8:15 PM</small></div>
+                </li>
+                <li class="step active">
+                  <div class="step-icon">🍳</div>
+                  <div class="step-text">Preparing<br><small>In Progress</small></div>
+                </li>
+                <li class="step">
+                  <div class="step-icon">🛵</div>
+                  <div class="step-text">On the Way<br><small>Waiting</small></div>
+                </li>
+                <li class="step">
+                  <div class="step-icon">🏠</div>
+                  <div class="step-text">Delivered<br><small>Pending</small></div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="order-details-grid mt-4">
+              <div class="detail-block">
+                <h5>Order Summary</h5>
+                <p id="trackOrderSummary">1x Cheese Steamed Momos<br>2x Paneer Aloo Paratha</p>
+                <strong class="total-price mt-1" id="trackOrderTotal">Total: ₹340</strong>
+                <span class="payment-status mt-1" id="trackPaymentStatus">Payment: <strong style="color:#4caf50;">Paid (UPI)</strong></span>
+              </div>
+              <div class="detail-block">
+                <h5>Delivery Details</h5>
+                <p class="address-text" id="trackAddressDisplay">123 Food Street, Block B, Floor 4.</p>
+                <p class="instructions-text mt-2" id="trackInstructions"><em>Instruction: Please don't ring the bell, baby is sleeping.</em></p>
+              </div>
+            </div>
+            
+            <div class="track-actions mt-4 pt-4" style="border-top: 1px dashed rgba(255,255,255,0.1);" id="trackActionsWrapper">
+              <div class="delivery-partner" id="trackDeliveryPartner">
+                <div class="dp-avatar">🚴</div>
+                <div class="dp-info">
+                  <strong>Raju Kumar</strong>
+                  <span>Delivery Partner (⭐ 4.8)</span>
+                </div>
+                <button class="btn-secondary btn-small">📞 Call Raju</button>
+              </div>
+              <div class="action-buttons mt-3" id="trackActionButtons">
+                <button class="btn-secondary btn-small ui-no-motion cancel-order-btn" onclick="cancelActiveOrder()">Cancel Order</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: ORDERS & FAVORITES -->
+      <section class="dash-section" id="dash-orders">
+        <div class="dash-section-header">
+          <h2>Orders & Favorites</h2>
+          <p>View your past orders and reorder your favorites.</p>
+        </div>
+        <div class="dash-grid-split">
+          <div class="dash-card">
+            <h3>Past Orders</h3>
+            <ul class="dash-list" id="pastOrdersList">
+              <li>
+                <div class="item-info">
+                  <strong>Order #MK-72110</strong>
+                  <span>Delivered Oct 2, 2026 • ₹450</span>
+                </div>
+                <button class="btn-secondary btn-small">Reorder</button>
+              </li>
+              <li>
+                <div class="item-info">
+                  <strong>Order #MK-68002</strong>
+                  <span>Delivered Sep 15, 2026 • ₹220</span>
+                </div>
+                <button class="btn-secondary btn-small">Reorder</button>
+              </li>
+            </ul>
+          </div>
+          <div class="dash-card">
+            <h3>Favorite Orders ❤️</h3>
+            <ul class="dash-list">
+              <li>
+                <div class="item-info">
+                  <strong>Cheese Steamed Momos</strong>
+                  <span>₹140</span>
+                </div>
+                <button class="btn-primary btn-small">Reorder</button>
+              </li>
+              <li>
+                <div class="item-info">
+                  <strong>Paneer Aloo Paratha</strong>
+                  <span>₹100</span>
+                </div>
+                <button class="btn-primary btn-small">Reorder</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: WALLET & OFFERS -->
+      <section class="dash-section" id="dash-wallet">
+        <div class="dash-section-header">
+          <h2>Wallet & Offers</h2>
+          <p>Manage your payment methods and apply coupons.</p>
+        </div>
+        <div class="dash-cards-grid">
+          <div class="dash-card gradient-card">
+            <h3>Loyalty Points</h3>
+            <div class="points-display">
+              <span class="points-val">450</span>
+              <span class="points-lbl">Megha Coins</span>
+            </div>
+            <p class="points-desc">Use 500 coins to get ₹50 off your next meal!</p>
+          </div>
+          <div class="dash-card">
+            <h3>Saved Payment Methods</h3>
+            <ul class="dash-list payment-list">
+              <li><span>💳</span> •••• •••• •••• 4242 (Visa)</li>
+              <li><span>📱</span> UPI: user@okicici</li>
+            </ul>
+            <button class="btn-secondary btn-small mt-2">+ Add Method</button>
+          </div>
+        </div>
+        <h3 class="mt-4 mb-2">Available Coupons</h3>
+        <div class="dash-coupons-wrap">
+          <div class="coupon-card">
+            <div class="coupon-left">
+              <span class="discount">20% OFF</span>
+              <span class="code">WELCOME20</span>
+            </div>
+            <div class="coupon-right">
+              <p>On your first order above ₹300</p>
+            </div>
+          </div>
+          <div class="coupon-card disabled">
+            <div class="coupon-left">
+              <span class="discount">FREE ITEM</span>
+              <span class="code">PARATHA5</span>
+            </div>
+            <div class="coupon-right">
+              <p>Free Aloo Paratha on orders above ₹400.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: MY ACTIVITY -->
+      <section class="dash-section" id="dash-activity">
+        <div class="dash-section-header">
+          <h2>My Activity</h2>
+          <p>Your reviews and wishlist.</p>
+        </div>
+        <div class="dash-grid-split">
+          <div class="dash-card">
+            <h3>My Wishlist 🌟</h3>
+            <ul class="dash-list">
+              <li>Veg Kurkure Momos - <span style="color:var(--primary)">Available</span></li>
+              <li>Aloo Paratha with Curd - <span style="color:var(--primary)">Available</span></li>
+            </ul>
+          </div>
+          <div class="dash-card">
+            <h3>My Reviews 📝</h3>
+            <div class="review-item">
+              <div class="stars">★★★★★</div>
+              <p>"The momos are absolutely fantastic! Authentic taste."</p>
+              <span class="date">Oct 12, 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: SETTINGS -->
+      <section class="dash-section" id="dash-settings">
+        <div class="dash-section-header">
+          <h2>Account Settings</h2>
+          <p>Manage your account security and notifications.</p>
+        </div>
+        <div class="dash-card">
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Email Notifications</h4>
+              <p>Receive order updates and offers.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>SMS Alerts</h4>
+              <p>Get delivery tracking via SMS.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Two-Factor Authentication</h4>
+              <p>Add an extra layer of security to your account.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <button class="btn-secondary mt-4 ui-no-motion" style="color:#ff6b6b; border-color:rgba(255,60,60,0.3)" onclick="logoutUser()">Delete Account</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- LOGIN MODAL OVERLAY -->
+  <div class="login-overlay" id="loginOverlay"></div>
+
+  <!-- LOGIN MODAL -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-header">
+      <h3>Sign In / Register</h3>
+      <button class="login-close" id="loginCloseBtn">✕</button>
+    </div>
+    <div class="login-body">
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label for="loginName">Full Name</label>
+          <input type="text" id="loginName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPhone">Mobile Number</label>
+          <div class="phone-group">
+            <span class="phone-prefix">+91</span>
+            <input type="tel" id="loginPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+          </div>
+          <button type="button" class="btn-secondary btn-small mt-2" id="sendOtpBtn" onclick="sendOTP()">Get
+            OTP</button>
+        </div>
+        <div class="form-group hidden" id="otpGroup">
+          <label for="loginOtp">Enter OTP</label>
+          <input type="text" id="loginOtp" placeholder="Enter 4-digit OTP" pattern="[0-9]{4}">
+          <button type="button" class="btn-secondary btn-small mt-2" id="verifyOtpBtn" onclick="verifyOTP()">Verify
+            OTP</button>
+          <span id="otpStatus" class="otp-status"></span>
+        </div>
+        <div class="form-group disabled-until-verify" id="addressGroup">
+          <label for="loginAddress">Delivery Address</label>
+          <textarea id="loginAddress" placeholder="Enter your full address" rows="3" required disabled></textarea>
+          <button type="button" class="btn-secondary btn-small mt-2 location-btn" onclick="getLiveLocation()" disabled
+            id="liveLocationBtn">
+            📍 Get Live Location
+          </button>
+        </div>
+        <button type="submit" class="btn-primary w-100" id="loginSubmitBtn" disabled>Login / Save Details</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-close" id="cartCloseBtn">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="cart-checkout" onclick="openCheckout()">
+        🔒 Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL OVERLAY -->
+  <div class="checkout-overlay" id="checkoutOverlay"></div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="checkout-modal" id="checkoutModal">
+    <!-- Close button -->
+    <button class="dashboard-close" id="checkoutCloseBtn" style="position:absolute; top:20px; right:24px;">✕</button>
+
+    <!-- STEP 1: PAYMENT FORM -->
+    <div class="checkout-step active" id="checkoutStep1">
+      <div class="checkout-header">
+        <h2>Complete Your Order</h2>
+        <p>Choose your preferred payment method</p>
+      </div>
+      
+      <div class="checkout-grid">
+        <!-- Left: Payment Methods -->
+        <div class="checkout-left">
+          <h3>Payment Methods</h3>
+          <div class="payment-options">
+            <label class="pay-option">
+              <input type="radio" name="payment_method" value="upi" checked>
+              <span class="pay-box">
+                <span class="pay-icon">📱</span>
+                <span class="pay-text">UPI (GPay, PhonePe, Paytm)</span>
+              </span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="payment_method" value="card">
+              <span class="pay-box">
+                <span class="pay-icon">💳</span>
+                <span class="pay-text">Credit / Debit Card</span>
+              </span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="payment_method" value="netbanking">
+              <span class="pay-box">
+                <span class="pay-icon">🏦</span>
+                <span class="pay-text">Net Banking</span>
+              </span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="payment_method" value="cod">
+              <span class="pay-box">
+                <span class="pay-icon">💵</span>
+                <span class="pay-text">Cash on Delivery</span>
+              </span>
+            </label>
+          </div>
+
+          <div class="mt-4">
+            <h3>Delivery Tip (Optional)</h3>
+            <div class="tip-options">
+              <label class="tip-option"><input type="radio" name="tip" value="10" onchange="updateCheckoutTotal()"><span>₹10</span></label>
+              <label class="tip-option"><input type="radio" name="tip" value="20" onchange="updateCheckoutTotal()"><span>₹20</span></label>
+              <label class="tip-option"><input type="radio" name="tip" value="50" onchange="updateCheckoutTotal()"><span>₹50</span></label>
+              <label class="tip-option"><input type="radio" name="tip" value="0" checked onchange="updateCheckoutTotal()"><span>No Tip</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="checkout-right">
+          <div class="order-summary-card">
+            <h3>Order Summary</h3>
+            <div class="summary-line">
+              <span>Item Total</span>
+              <span id="checkoutSubtotal">₹0</span>
+            </div>
+            <div class="summary-line">
+              <span>Delivery Fee</span>
+              <span>₹40</span>
+            </div>
+            <div class="summary-line" id="discountLine" style="display:none; color:var(--primary);">
+              <span>Discount</span>
+              <span id="checkoutDiscount">-₹0</span>
+            </div>
+            <div class="summary-line" id="tipLine" style="display:none;">
+              <span>Delivery Tip</span>
+              <span id="checkoutTip">₹0</span>
+            </div>
+            
+            <div class="coupon-input-group mt-3 mb-3">
+              <input type="text" id="couponCodeInput" placeholder="Enter Coupon Code">
+              <button class="btn-secondary btn-small" onclick="applyCoupon()">Apply</button>
+            </div>
+
+            <div class="summary-total mt-2">
+              <span>To Pay</span>
+              <span id="checkoutFinalTotal">₹0</span>
+            </div>
+
+            <button class="btn-primary w-100 mt-3" onclick="processPayment()">
+              Pay Securely
+            </button>
+            <p class="secure-text text-center mt-2" style="font-size:12px; color:var(--text-muted);">
+              🔒 100% Secure & Encrypted Transaction
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: PROCESSING -->
+    <div class="checkout-step" id="checkoutStep2">
+      <div class="processing-state text-center">
+        <div class="spinner"></div>
+        <h3 class="mt-4">Processing Payment...</h3>
+        <p>Please do not close or refresh this page.</p>
+      </div>
+    </div>
+
+    <!-- STEP 3: SUCCESS -->
+    <div class="checkout-step" id="checkoutStep3">
+      <div class="success-state text-center">
+        <div class="success-checkmark">
+          <div class="check-icon">✓</div>
+        </div>
+        <h2 class="mt-4">Payment Successful!</h2>
+        <p>Your order has been placed successfully.</p>
+        
+        <div class="receipt-card mt-4 text-left">
+          <div class="receipt-header">
+            <span>Transaction ID:</span>
+            <strong id="receiptTxnId">TXN-12345678</strong>
+          </div>
+          <div class="receipt-body">
+            <div class="summary-line"><span>Amount Paid:</span><strong id="receiptAmount">₹0</strong></div>
+            <div class="summary-line"><span>Method:</span><strong id="receiptMethod">UPI</strong></div>
+            <div class="summary-line"><span>Date & Time:</span><strong id="receiptDate">Now</strong></div>
+          </div>
+        </div>
+
+        <button class="btn-primary mt-4" onclick="closeCheckoutAndTrack()">Track Order</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <span id="toastMsg">Item added to cart</span>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Megha's Kitchen</div>
+        <p>Authentic homemade food crafted with love and care. Bringing the best momos and parathas to your doorstep.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="#menu" onclick="setTimeout(()=>filterMenu('momos'),300)">Momos</a>
+        <a href="#menu" onclick="setTimeout(()=>filterMenu('paratha'),300)">Parathas</a>
+        <a href="#menu" onclick="setTimeout(()=>filterMenu('bestseller'),300)">Bestsellers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">📍 Amroli, Surat</a>
+        <a href="#">📞 Call Us</a>
+        <a href="#" onclick="sendWhatsApp()">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Megha's Kitchen. Made with ❤️ in Surat.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
