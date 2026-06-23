@@ -38,6 +38,10 @@ The website serves as a step towards helping local food businesses establish the
 * 🌬️ Tailwind CSS
 * 🌐 Responsive Web Design
 
+## 🌐 Live Website
+
+🔗 Visit Here: https://kavyaio.github.io/Meghas-kitchen/
+
 ## 💡 Impact
 
 This project demonstrates how technology can help small and local businesses transition into the digital space by providing a professional online presence and improving customer accessibility.
