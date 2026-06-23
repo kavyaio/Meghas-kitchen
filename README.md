@@ -44,7 +44,8 @@ This project demonstrates how technology can help small and local businesses tra
 
 ## 📸 Screenshots
 
-*Add project screenshots here.*
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2680c48c-52a4-4241-9859-94981cd75fdc" />
+
 
 ## 🔮 Future Enhancements
 
